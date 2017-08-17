@@ -51,58 +51,83 @@ s,i,em{font-style:normal;text-decoration:none;}
     display:none
 }
 
+
+
+
+
+/*开始制作*/
 /*头部导航开始*/
 .shortcut {
-    height: 30px;
-    line-height: 30px;
-    background-color: #f1f1f1;
+	height: 30px;
+	line-height: 30px;
+	background-color: #F1F1F1;
 }
-.dt,
-.shortcut .fore
-{
-    padding:0 20px 0 10px;
-    position: relative;
+
+ .dt,
+ .shortcut .fore
+ /*提升权重，有下箭头的li的padding*/
+ {
+	padding: 0 20px 0 10px;
+	position: relative;	
 }
+
+
 .dt i,
 .fore i
-{
-    font: 400 15px/15px "宋体";
-    position: absolute;
-    top:13px;
-    right:3px;
-    height: 7px;
-    overflow: hidden;
-    width: 15px;
+ {
+	/*子绝父相*/
+	position: absolute;
+	/*400为字体的加粗程度，700为bold,15px/15px为字号/行高*/
+	font: 400 15px/15px "宋体";
+	right: 3px;
+	top: 13px;
+	height: 7px;
+	/*切割*/
+	overflow: hidden;
+	/*给父盒子加宽*/
+	width: 15px;
 }
+
 .dt s,
-.fore s{
-    position: absolute;
-    top: -8px;
-    left: 0;
+.fore s
+{
+	/*相对父亲盒子的top和left*/
+	position: absolute;
+	top: -8px;
+	left: 0;
 }
+
 .fr li {
-    float: left;
-    padding: 0 10px;
+	float: left;
+	/*li之间的间隔,用padding撑开，不过line也会有padding，所以line中要把padding删除*/
+	padding: 0 10px;
 }
+
 .fr .line {
-    width: 1px;
-    height: 12px;
-    background-color: #ddd;
-    margin-top: 9px;
-    padding:0;
+	width: 1px;
+	height: 12px;
+	background-color: #ddd;
+	margin-top: 9px;
+	padding: 0;
+} 
+
+.shortcut .tel-jd {
+	padding: 0 20px 0 25px;
 }
-.shortcut .tel-jd{
-    padding:0 20px 0 25px;
+
+.tel {
+	position: absolute;
+	width: 15px;
+	height: 20px;
+	background: url(../images/sprite.png) no-repeat;
+	left: 0;
+	top: 5px;
 }
-.tel{
-    position: absolute;
-    width: 15px;
-    height: 20px;
-    background: url(../images/sprite.png) no-repeat;
-    left: 5px;
-    top:5px;
-}
+
 /*顶部end*/
+
+
+
 /*topbanner start*/
 .topbanner {
     background-color: #8A25C6;
@@ -151,37 +176,128 @@ s,i,em{font-style:normal;text-decoration:none;}
 
 .search {
     width: 538px;
-    height: 75px;
-    background-color: purple;
+    height: 35px;
     float: left;
-    padding-top: 25px;
+    margin-top: 25px;
 }
+
+.search input {
+	/*盒子大小=width+padding+border*/
+	width: 450px;
+	height: 32px;
+	border: 2px solid #B61D1D;
+    padding-left: 4px;
+	color: #666666;
+	font: 14px/32px "微软雅黑";
+	float: left;
+}
+
+.search button {
+	width: 80px;
+	height: 36px;
+	background-color: #B61D1D;
+	float: left;
+	font: 16px/36px "微软雅黑";
+	color: #FFFFFF;
+	cursor: pointer;
+}
+
 .car {
-    width: 139px;
+    width: 96px;
     height: 34px;
-    background-color: blue;
+    padding-left: 43px;
     float: right;
     margin:25px 65px 0 0 ;
+    border: 1px solid #DFDFDF;
+    line-height: 34px;
+    /**/
+    position: relative;
 }
 
+.icon1 {
+	position: absolute;
+	top: 10px;
+	left: 20px;
+	width: 16px;
+	height: 13px;
+	background: url(../images/sprite.png) no-repeat -1px -59px;
+}
+
+.icon2 {
+	font: 400 13px/13px simsun;
+	position: absolute;
+	top: 10px;
+	right: 10px;	
+}
+
+.icon3 {
+	position: absolute;
+	width: 16px;
+	height: 14px;
+	background-color: #C81623;
+	line-height: 14px;
+	text-align: center;
+	color: #FFFFFF;
+	top: -4px;
+	border-radius: 7px 7px 7px 0px;
+}
+
+.hotwords {
+	width: 500px;
+	padding: 7px 0px;
+	float: left;
+}
+
+.hotwords a {
+	margin-right: 8px;
+}
+/*头部结束*/
 
 
 
+/*底部开始*/
+.slogen {
+	height: 54px;
+	padding: 20px 0;
+	background-color: #f5f5f5;
+	position: relative;
+	margin-bottom: 25px;
+}
 
+.item {
+	width: 302px;
+	position: absolute;
+	top: 20px;
+	left: 50%;
+}
 
+.slogen1 {
+	margin-left: -608px;
+}
 
+.slogen2 {
+	margin-left: -304px;
+}
 
+.slogen3 {
+	margin-left: 2px;
+}
 
+.slogen4 {
+	margin-left: 306px;
+}
 
+.service dl {
+	width: 198px;
+	float: left;
+}
 
+.service dt {
+	font-size: 16px;
+	height: 28px;
+	font-family: "微软雅黑";
+}
 
-
-
-
-
-
-
-
-
-
-
+.service dd {
+	height: 20px;
+}
