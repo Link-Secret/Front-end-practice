@@ -285,6 +285,28 @@ s,i,em{font-style:normal;text-decoration:none;}
 .dropdown .dd {
 	height: 465px;
 	background-color: #C81623;
+	margin-top: 2px;
+}
+
+.dropdown .dd .items {
+	height: 31px;
+	line-height: 31px;
+	border-left: 1px solid #B61D1D;
+	margin-left: 10px;
+	color: #FFFFFF;
+	font-size: 14px;
+	font-family: "微软雅黑";
+}
+
+.dropdown .items h3 {
+	float: left;
+}
+
+.dropdown .items span {
+	float: right;
+	margin-right: 15px;
+	font-family: "宋体";
+	font-weight: 600;
 }
 
 .navitems {

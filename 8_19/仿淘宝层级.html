@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			/*.test {
+		        width: 150px;
+                height: 300px;
+                border: 1px solid #ccc;
+                margin-top: 100px;
+                float: left;
+                /*防止中间的边框叠加为2px*/
+                /*margin-left: -1px;
+			}
+			.test:hover {
+				border: 1px solid#f40;*/
+				/*因为右边会被遮盖，所以当悬停的时候相对定位提高层级*/
+				/*position: relative;
+			}*/
+				.test {
+		        width: 150px;
+                height: 300px;
+                border: 1px solid #ccc;
+                margin-top: 100px;
+                float: left;
+                /*防止中间的边框叠加为2px*/
+                margin-left: -1px;
+                position: relative;
+			}
+			.test:hover {
+				border: 1px solid#f40;
+				z-index: 1;	
+			}
+		</style>
+	</head>
+	<body>
+		<div class="test"></div>
+		<div class="test"></div>
+		<div class="test"></div>
+		<div class="test"></div>
+		<div class="test"></div>
+	</body>
+</html>
