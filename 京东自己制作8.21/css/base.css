@@ -1,0 +1,327 @@
+@charset "UTF-8";
+/*css 初始化 */
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img { margin:0; padding:0; }
+fieldset, img,input,button { border:none; padding:0;margin:0;outline-style:none; }
+ul, ol { list-style:none; }
+input { padding-top:0; padding-bottom:0; font-family: "SimSun","宋体";}
+select, input { vertical-align:middle;}
+select, input, textarea { font-size:12px; margin:0; }
+textarea { resize:none; } /*防止拖动*/
+img {border:0;	vertical-align:middle; }  /*  去掉图片低测默认的3像素空白缝隙*/
+table { border-collapse:collapse; }
+body {
+    font:12px/150% Arial,Verdana,"\5b8b\4f53";
+    color:#666;
+    background:#fff
+}
+.clearfix:before,.clearfix:after {
+    content:"";
+    display:table;
+}
+.clearfix:after{clear:both;}
+.clearfix{
+    *zoom:1;/*IE/7/6*/
+}
+a {color:#666; text-decoration:none; }
+a:hover{color:#C81623;}
+h1,h2,h3,h4,h5,h6 {text-decoration:none;font-weight:normal;font-size:100%;}
+s,i,em{font-style:normal;text-decoration:none;}
+.col-red{color: #C81623!important;}
+
+/*公共类*/
+.w {  /*版心 提取 */
+    width: 1210px;margin:0 auto;
+}
+.fl {
+    float:left
+}
+.fr {
+    float:right
+}
+.al {
+    text-align:left
+}
+.ac {
+    text-align:center
+}
+.ar {
+    text-align:right
+}
+.hide {
+    display:none
+}
+
+
+
+
+
+/*开始制作*/
+/*头部导航开始*/
+.shortcut {
+     height: 30px;
+     line-height: 30px;
+     background-color: #F1F1F1;
+     width: 100%;
+}
+
+ .shortcut .dt,
+ .shortcut .fore
+ /*提升权重，有下箭头的li的padding*/
+ {
+   padding: 0 20px 0 10px;
+   position: relative;
+}
+
+
+.shortcut .dt i,
+.fore i
+ {
+   font: 400 15px/15px "宋体";
+   position: absolute;
+   top: 13px;
+   right: 3px;
+   height: 7px;
+   overflow: hidden; 
+   width: 15px;
+}
+
+.shortcut .dt s,
+.fore s
+{
+      position: absolute;
+      left: 0;
+      top: -8px;
+}
+
+.fr li {
+       float: left;
+       padding: 0 10px;
+}
+
+.fr .line {
+       width: 1px;
+       height: 12px;
+       background-color: #DDDDDD;
+       margin-top: 9px;
+       padding: 0;
+} 
+
+.shortcut .tel-jd {
+       padding: 0 20px 0 25px;
+}
+
+.tel {
+       position: absolute;
+       width: 15px;
+       height: 20px;
+       background: url(../images/sprite.png) no-repeat;
+       left: 5px;
+       top: 5px;
+}
+
+/*顶部end*/
+
+
+
+/*topbanner start*/
+.topbanner {
+    
+}
+.close-banner {
+    
+}
+.close-banner:hover {
+
+}
+.tp{
+
+}
+
+/*topbanner end*/
+
+.logo {
+
+}
+.jd-a{
+
+}
+.db11 {
+
+}
+
+
+.search {
+
+}
+
+.search input {
+	/*盒子大小=width+padding+border*/
+
+}
+
+.search button {
+
+}
+
+.car {
+
+}
+
+.icon1 {
+
+}
+
+.icon2 {
+	
+}
+
+.icon3 {
+
+}
+
+.hotwords {
+
+}
+
+.hotwords a {
+
+}
+
+  /*nav部分*/
+.jd-nav {
+
+}
+
+.dropdown {
+
+	/*超出部分显示，为了浏览器兼容*/
+	overflow: visible;
+}
+
+.dropdown .dt {
+
+}
+
+.dropdown .dt a {
+
+}
+
+.dropdown .dd {
+
+}
+
+.dropdown .dd .items {
+
+}
+
+.dropdown .items h3 {
+
+}
+
+.dropdown .items span {
+
+}
+
+.navitems {
+
+}
+
+.navitems li {
+
+}
+
+.navitems li.new {
+	
+}
+
+.navitems li a {
+
+}
+
+.navitems li a:hover {
+	
+}
+
+.bike {
+
+	
+}
+
+.bike a {
+
+}
+
+/*头部结束*/
+
+
+
+/*底部开始*/
+.slogen {
+	
+}
+
+.item {
+	
+}
+
+.slogen1 {
+	
+}
+
+.slogen2 {
+	
+}
+
+.slogen3 {
+	
+}
+
+.slogen4 {
+	
+}
+
+.service dl {
+	
+}
+
+.service dt,
+.coverage .dt
+{
+	
+}
+
+.service dd {
+	
+}
+
+.coverage {
+	
+}
+
+.coverage p {
+	
+}
+
+.coverage .dd {
+	
+}
+
+.looklook {
+	
+}
+
+.jd-footer .againw{
+	
+}
+
+.links {
+	
+}
+
+.links a {
+	
+}
+
+.copyRight{
+	
+}
