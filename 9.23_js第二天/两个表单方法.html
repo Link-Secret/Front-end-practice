@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			window.onload = function(){
+				var txt = document.getElementById("txt");
+				txt.focus();
+				var select = document.getElementById("select");
+				select.onmouseover = function(){
+					select.select();
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" id="txt" />
+		<input type="text" id="select" />
+	</body>
+</html>

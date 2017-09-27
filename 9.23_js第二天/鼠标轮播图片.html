@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			#box {
+				height: 70px;
+				width: 360px;
+				padding-top: 360px;
+				border: 1px solid #CCCCCC;
+				margin: 100px auto;
+				overflow: hidden;
+				background: url(img/01big.jpg) no-repeat;
+			}
+			#box ul {
+				list-style: none;
+				border-top: 1px solid #CCCCCC;
+				overflow: hidden; /*孩子浮动了,清除浮动,不然没有高*/
+			}
+			#box li {
+				float: left;
+			}
+		</style>
+		<script>
+			//写在外部的js需要window.onload(行内式的不需要window.onload)
+			window.onload = function() {
+				var box = document.getElementById("box");
+				function fun(liid,bg){
+					var liid = document.getElementById(liid);
+					liid.onmouseover = function(){
+						box.style.backgroundImage = bg;
+					}
+				}
+				fun("li01","url(img/01big.jpg)");
+				fun("li02","url(img/02big.jpg)");
+				fun("li03","url(img/03big.jpg)");
+				fun("li04","url(img/04big.jpg)");
+				fun("li05","url(img/05big.jpg)");
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<ul>
+				<li id="li01"><img src="img/01.jpg"/></li>
+				<li id="li02"><img src="img/02.jpg"/></li>
+				<li id="li03"><img src="img/03.jpg"/></li>
+				<li id="li04"><img src="img/04.jpg"/></li>
+				<li id="li05"><img src="img/05.jpg"/></li>
+			</ul>
+		</div>
+	</body>
+</html>

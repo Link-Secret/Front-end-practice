@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			#box {
+				height: 70px;
+				width: 360px;
+				padding-top: 360px;
+				border: 1px solid #CCCCCC;
+				margin: 100px auto;
+				overflow: hidden;
+				background: url(img/01big.jpg) no-repeat;
+			}
+			#box ul {
+				list-style: none;
+				border-top: 1px solid #CCCCCC;
+				overflow: hidden; /*孩子浮动了,清除浮动,不然没有高*/
+			}
+			#box li {
+				float: left;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div id="box">
+			<ul>
+				<li id="li01" onmouseover=fun("li01","url(img/01big.jpg)");><img src="img/01.jpg"/></li>
+				<li id="li02" onmouseover=fun("li02","url(img/02big.jpg)")><img src="img/02.jpg"/></li>
+				<li id="li03" onmouseover=fun("li03","url(img/03big.jpg)")><img src="img/03.jpg"/></li>
+				<li id="li04" onmouseover=fun("li04","url(img/04big.jpg)")><img src="img/04.jpg"/></li>
+				<li id="li05" onmouseover=fun("li05","url(img/05big.jpg)")><img src="img/05.jpg"/></li>
+			</ul>
+		</div>
+		<script>
+			//写在外部的js需要window.onload
+			//且这个script必须在样式加载完毕后才能写
+				var box = document.getElementById("box");
+				function fun(liid,bg) {
+					var liid = document.getElementById(liid);
+					liid.onmouseover = function(){
+						box.style.backgroundImage = bg;
+					}
+				}
+			
+		</script>
+	</body>
+</html>

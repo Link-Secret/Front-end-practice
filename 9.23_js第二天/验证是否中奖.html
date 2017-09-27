@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			window.onload = function(){
+				function $(id){
+				return document.getElementById(id);
+			    }
+				$('btn').onclick = function(){
+					
+					if(($('txt').value)=='154'){
+						alert("中奖了");
+					}else{
+						alert('很抱歉，没中奖');
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" id="txt" value="请输入" />
+		<button type="button" id="btn">查询</button>
+	</body>
+</html>
