@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			li span {
+				margin: 6px;
+			}
+			.current {
+				background-color: red !important; 
+			}
+		</style>
+		<script>
+			window.onload = function(){
+				var lis = document.getElementsByTagName("li");
+				for(var i=0;i<lis.length;i++){
+					if(i%2 == 0){
+						lis[i].style.backgroundColor = "#CCCCCC";
+					}
+					lis[i].onmouseover = function(){
+		/*主要是因为上面一个i要遍历一次，下面一个i也要遍历一次，和Java有差别*/
+		/*两个i没有关系，不是从属关系。而this指向的是函数的调用关系*/
+					  /*lis[i].className = "current";*/
+					  this.className = "current";
+				    }
+					lis[i].onmouseout = function(){
+					  this.className = "";
+					 /*lis[i].className = "";*/
+					}
+			    }
+			}
+		</script>
+	</head>
+	<body>
+		<li><span>1</span><span>2</span><span>3</span><span>4</span></li>
+		<li><span>1</span><span>2</span><span>3</span><span>4</span></li>
+		<li><span>1</span><span>2</span><span>3</span><span>4</span></li>
+		<li><span>1</span><span>2</span><span>3</span><span>4</span></li>
+		<li><span>1</span><span>2</span><span>3</span><span>4</span></li>
+		<li><span>1</span><span>2</span><span>3</span><span>4</span></li>
+		<li><span>1</span><span>2</span><span>3</span><span>4</span></li>
+		<li><span>1</span><span>2</span><span>3</span><span>4</span></li>
+		<li><span>1</span><span>2</span><span>3</span><span>4</span></li>
+	</body>
+</html>

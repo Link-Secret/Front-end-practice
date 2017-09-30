@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.current {
+				background-color: pink;
+			}
+		</style>
+		<script>
+			window.onload = function(){
+				var btns = document.getElementsByTagName("button");
+				for(var i=0;i<btns.length;i++){
+					btns[i].index = i;  //定义一个index的属性
+					btns[i].onclick = function(){
+						alert(this.index);  //不能使用btns[i].index
+						//排他思想，先把所有的先清空，再设置需要设置的。
+						for(var j=0;j<btns.length;j++){
+							btns[j].className = "";
+						}
+						this.className = "current";
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<button>占位按钮</button>
+		<button>占位按钮</button>
+		<button>占位按钮</button>
+		<button>占位按钮</button>
+		<button>占位按钮</button>
+	</body>
+</html>

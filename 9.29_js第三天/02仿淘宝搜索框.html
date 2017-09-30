@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.search {
+				width: 300px;
+				height: 30px;
+				margin: 100px auto;
+				position: relative;
+			}
+			.search input {
+				height: 25px;
+				width: 200px;
+				/*把输入框中的宽高层叠了*/
+			} 
+			.search label {
+				font-size: 12px;
+				color: #CCCCCC;
+				position: absolute;  /*子绝父相定位*/
+				top: 8px;
+				left: 10px;
+				cursor: text; /*鼠标经过是输入样式*/
+			}
+		</style>
+		<script>
+			window.onload = function(){
+				function $(id) {return document.getElementById(id);}
+				$("txt").oninput = function(){
+					if(this.value == ""){ /*当输入的内容为空的时候则显示提示信息*/
+						$("message").style.display = "block";
+					}else{
+						$("message").style.display = "none";
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div class="search">
+			<input type="text" id="txt" />
+			<label for="txt" id="message">必败的国际大牌</label>
+			<!--labe for "txt"是为了使当点击这几个字是进入输入框，而不是真的点击这几个字-->
+		</div>
+	</body>
+</html>
