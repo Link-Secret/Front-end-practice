@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+			   width: 100px;
+			   height: 20px;
+			   border: 1px solid #333333;
+			   margin: 7px;
+			   background-color: #800080;
+			}
+		</style>
+		<script>
+			window.onload = function(){
+				/*alert(document.getElementsByClassName("demo").length);*/
+				function getclass(classname,id){
+					
+					if(document.getElementsByClassName){
+						/*支持byclassname*/
+						if(id){
+							var eleid = document.getElementById(id);
+							return eleid.getElementsByClassName(classname);	
+						}
+						return document.getElementsByClassName(classname);
+					}
+					else{
+						if(id){
+							var eleid = document.getElementById(id);
+							var dom = eleid.getElementsByTagName("*");
+						}else{
+							var dom = document.getElementsByTagName("*");
+							/*有没有id的区别就是取tagname的范围不同*/
+						}
+						var arr = [];
+						for(var i=0;i<dom.length;i++){
+							var test = dom[i].className.split(" ");
+							for(var j=0;j<test.length;j++){
+								if(test[j]== classname){
+									arr.push(dom[i]);
+								}
+							}
+						}
+						return arr;
+					}				
+				}
+				alert(getclass("demo","one").length);
+				var de = getclass("demo","one");
+				for(var i=0;i<de.length;i++){
+					de[i].style.backgroundColor = "red";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+		<div class="demo"></div>
+		<div></div>
+		<div></div>
+	<div id="one">
+		<div class="test demo"></div>
+		<div></div>
+		<div></div>
+		<div class="demo"></div>
+		<div></div>
+	</div>
+	</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box{
+				width: 400px;
+				height: 300px;
+				border: 1px solid #CCCCCC;
+				margin: 100px auto;
+				overflow: hidden;  /*li在一开始书写css的时候先将多余的清除掉*/
+			}
+			.mt span {
+				display: inline-block;
+				background-color: #DFFFDF;
+				width: 97px;
+				cursor: pointer;
+			}
+			.mt .current {
+				background-color: palevioletred;
+			}
+			.mb li{
+				height: 280px;
+				background-color: palevioletred;
+				display: none;
+			}
+			.mb .show {
+				display: block;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				function tab(id){
+					var target = document.getElementById(id);
+					var spas = target.getElementsByTagName("span");
+					var lis = target.getElementsByTagName("li");
+					for(var i=0;i<spas.length;i++){
+						spas[i].index = i;
+						spas[i].onmouseover = function(){
+							for(var j=0;j<spas.length;j++){
+								spas[j].className = "";
+								lis[j].className = "";
+							}
+							this.className = "current";
+							lis[this.index].className = "show";
+						}
+					}
+				}
+				tab("first");
+				tab("second");
+				tab("thirst");
+			}
+		</script>
+	</head>
+	<body>
+		<div class="box" id="first">
+			<div class="mt">
+				<span class="current">第一个span</span>  <!--空白折叠现象会使得两个span之间有缝隙第四个会被挤下去-->
+				<span>第二个span</span>
+				<span>第三个span</span>
+				<span>第四个span</span>
+			</div>
+			<div class="mb">
+				<ul>
+					<li class="show">第一个li</li>
+					<li>第二个li</li>
+					<li>第三个li</li>
+					<li>第四个li</li>
+				</ul>
+			</div>
+		</div>
+		<div class="box" id="second" >
+			<div class="mt">
+				<span class="current">第一个span</span>  <!--空白折叠现象会使得两个span之间有缝隙第四个会被挤下去-->
+				<span>第二个span</span>
+				<span>第三个span</span>
+				<span>第四个span</span>
+			</div>
+			<div class="mb">
+				<ul>
+					<li class="show">第一个li</li>
+					<li>第二个li</li>
+					<li>第三个li</li>
+					<li>第四个li</li>
+				</ul>
+			</div>
+		</div>
+		<div class="box" id="thirst" >
+			<div class="mt">
+				<span class="current">第一个span</span>  <!--空白折叠现象会使得两个span之间有缝隙第四个会被挤下去-->
+				<span>第二个span</span>
+				<span>第三个span</span>
+				<span>第四个span</span>
+			</div>
+			<div class="mb">
+				<ul>
+					<li class="show">第一个li</li>
+					<li>第二个li</li>
+					<li>第三个li</li>
+					<li>第四个li</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

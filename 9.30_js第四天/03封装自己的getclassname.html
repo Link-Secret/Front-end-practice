@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+			   width: 100px;
+			   height: 20px;
+			   border: 1px solid #333333;
+			   margin: 7px;
+			   background-color: #800080;
+			}
+		</style>
+		<script>
+			window.onload = function(){
+				/*alert(document.getElementsByClassName("demo").length);*/
+				function getclass(classname){
+					if(document.getElementsByClassName){
+						return document.getElementsByClassName(classname);
+					}
+					var arr = [];
+					var dom = document.getElementsByTagName("*");
+					/*将所有的tag标签都遍历一遍*/
+					for(var i=0;i<dom.length;i++){
+						if(dom[i].className == classname){
+							/*如果某个标签的类名等于目标类名则添加到数组中*/
+							arr.push(dom[i]);
+							//将元素存储到返回数组中,我们需要的是div元素节点
+						}
+					}
+					return arr;
+				}
+				alert(getclass("demo").length);
+			}
+		</script>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+		<div class="demo"></div>
+		<div></div>
+		<div></div>
+		<div class="test demo"></div>
+		<!--该版本有bug，当一个包含多个类名的时候无法判断-->
+		<div></div>
+		<div></div>
+		<div class="demo"></div>
+		<div></div>
+	</body>
+</html>

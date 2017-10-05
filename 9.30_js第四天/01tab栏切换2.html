@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box {
+				width: 450px;
+				height: 350px;
+				margin: 100px auto;
+				border: 1px solid #333333;
+				overflow: hidden;
+			}
+			.mt span {
+				display: inline-block;
+				width: 80px;
+				height: 40px;
+				line-height: 40px;
+				cursor: pointer;
+				background-color: pink;
+			}
+			.mt .current {
+				background-color: plum;
+			}
+			.mb li {
+				width: 100%;
+				height: 310px;
+				background-color: plum;
+				display: none;
+			}
+			.mb .show {
+				display: block;
+			}
+		</style>
+		<script>
+			window.onload = function(){
+				var spas = document.getElementsByTagName("span");
+			    var lis = document.getElementsByTagName("li");
+			     for(var i=0;i<spas.length;i++){
+			     	spas[i].index = i;
+			     	spas[i].onmouseover = function(){
+			     		for(var j=0;j<spas.length;j++){
+			     			spas[j].className = "";
+			     			lis[j].className = "";
+			     		}
+			     		this.className = "current";
+			     		lis[this.index].className = "show";
+			     	}
+			     }
+			}
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			<div class="mt">
+				<span class="current">第一个span</span>
+				<span>第二个span</span>
+				<span>第三个span</span>
+				<span>第四个span</span>
+				<span>第五个span</span>
+			</div>
+			<div class="mb">
+				<li class="show">第一个li</li>
+				<li>第二个li</li>
+				<li>第三个li</li>
+				<li>第四个li</li>
+				<li>第五个li</li>
+			</div>
+		</div>
+	</body>
+</html>
