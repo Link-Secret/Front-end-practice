@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#time {
+				text-align: center;
+				font-size: 30px;
+				color: #999999;
+			}
+		</style>
+		<script>
+			window.onload = function(){
+				var time = document.getElementById("time");
+				var endTime = new Date("2017/11/11 00:00:00");    //最终时间
+ 				setInterval(clock,1000);    //1000ms执行一次
+				function clock(){
+					var nowTime = new Date();    //现在时间，每次函数执行都要刷新当前时间
+					var second = parseInt((endTime.getTime()-nowTime.getTime())/1000);
+					/*从现在到endtime的总秒数*/
+					//time.innerHTML = second;
+					var day = parseInt(second/60/60/24);   //从秒数得到天数
+					//time.innerHTML = day;
+					var hour = parseInt((second/60/60)%24);   //从秒数得到小时
+					//time.innerHTML = hour;
+					var minutes = parseInt(second/60%60);   //从秒数得到分钟
+					//time.innerHTML = minutes;
+					var s = second % 60 ; 
+					
+					/*给小于10的前面加0*/
+					day < 10 ? day = "0"+day : day;
+					hour <10 ? hour = "0"+hour :hour;
+					minutes <10 ? minutes = "0"+minutes :minutes;
+					s < 10 ? s = "0"+s :s;
+					
+					
+					time.innerHTML = "距离双十一还有"+day+"天"+hour+"小时"+minutes+"分钟"+s+"秒";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="time">
+			sdf 
+		</div>
+	</body>
+</html>

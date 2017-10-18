@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul,ol {
+				list-style: none;
+			}
+			.box {
+				width: 730px;
+				height: 454px;
+				overflow: hidden;
+				margin: 100px auto;
+				position: relative;
+			}
+			.circle {
+				position: absolute;
+				left: 50%;
+				margin-left: -50px;
+				bottom: 10px;
+			}
+			.circle span {
+				float: left; /*需要浮动才能使得格子不会重叠*/
+				width: 18px;
+				height: 18px;
+				border-radius: 50%;
+				background-color: pink;
+				line-height: 18px;
+				text-align: center;
+				cursor: pointer;
+				margin-right: 9px; /*外边距*/
+			}
+			.circle .current {
+				background-color: #333333;
+			}
+		</style>
+		<script>
+			window.onload = function(){
+				var scroll = document.getElementById("scroll");
+				var circle = document.createElement("div");
+				/*circle.className = "circle";*/
+				circle.setAttribute("class","circle");
+				scroll.appendChild(circle);
+				var ul = document.getElementById("ul");
+				var lis = ul.children;   /*得到li的数组*/
+				for(var i=1;i<=lis.length;i++){
+					var spa = document.createElement("span");
+				    spa.innerHTML = i;
+					circle.appendChild(spa);
+				}
+				var ch = circle.children;
+				ch[0].setAttribute("class","current");
+			}
+		</script>
+	</head>
+	<body>
+		<div class="box" id="scroll">
+			<div class="slider">
+			  <ul id="ul">
+				<li><img src="image/11.jpg" /></li>
+				<li><img src="image/22.jpg" /></li>
+				<li><img src="image/33.jpg" /></li>
+				<li><img src="image/44.jpg" /></li>
+				<li><img src="image/55.jpg" /></li>
+				<li><img src="image/66.jpg" /></li>
+			  </ul>
+			</div>
+			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			window.onload = function(){
+				var demo = document.getElementById("demo");
+				var num = 0;
+				setInterval(fn,1000);       //这里不能写fn() ,那样会立即执行
+				function fn(){
+					num++;
+					demo.innerHTML = num;    //innerHtml的效果是先清除里面的内容，在添加，
+					                         //所以之前的内容会消失
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="demo">
+			
+		</div>
+	</body>
+</html>

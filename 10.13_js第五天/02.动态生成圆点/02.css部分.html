@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul,ol {
+				list-style: none;
+			}
+			.box {
+				width: 730px;
+				height: 454px;
+				overflow: hidden;
+				margin: 100px auto;
+				position: relative;
+			}
+			.circle {
+				position: absolute;
+				left: 50%;
+				margin-left: -50px;
+				bottom: 10px;
+			}
+			.circle span {
+				float: left; /*需要浮动才能使得格子不会重叠*/
+				width: 18px;
+				height: 18px;
+				border-radius: 50%;
+				background-color: pink;
+				line-height: 18px;
+				text-align: center;
+				cursor: pointer;
+				margin-right: 9px; /*外边距*/
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="slider">
+			  <ul>
+				<li><img src="image/11.jpg" /></li>
+				<li><img src="image/22.jpg" /></li>
+				<li><img src="image/33.jpg" /></li>
+				<li><img src="image/44.jpg" /></li>
+				<li><img src="image/55.jpg" /></li>
+				<li><img src="image/66.jpg" /></li>
+			  </ul>
+			</div>
+			<div class="circle">
+				<span>1</span>
+				<span>2</span>
+				<span>3</span>
+				<span>4</span>
+				<span>5</span>
+				<span>6</span>
+			</div>
+		</div>
+	</body>
+</html>
