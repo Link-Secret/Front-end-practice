@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			 window.onload = function() {
+			 	var btn = document.getElementById("btn");
+			 	var count = 5;
+			 	var timer = null;
+			 	btn.onclick = function() {
+			 		this.disabled = true;
+	                var that = this;  //由于函数的调用者会变化，所以保存当前的this
+	                this.innerHTML = count +"miao后重新发送";
+			 		timer = setInterval(sendMessage,1000);
+			 		function sendMessage() {
+			 			count --;
+			 		    if(count >= 0){
+			 			  that.innerHTML =  count+"秒后重新发送";
+			 		    }else{
+			 		    	that.innerHTML = "重新发送短信";
+			 		    	that.disabled = false;
+			 		    	count = 5;
+			 		    	clearInterval(timer);  //计时器停止执行，如果不停止会一直执行计时器
+			 		    }
+			 		}
+			 	}
+			 }
+		</script>
+	</head>
+	<body>
+		<input type="text" />
+		<button type="button" id="btn">点击发送短信</button>
+	</body>
+</html>

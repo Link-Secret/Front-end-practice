@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.xiaomi {
+				width:512px;
+				height: 400px;
+				margin: 20px auto;
+				border: 1px solid #f00;
+				overflow: hidden;
+				position: relative;
+			}
+			.xiaomi span {
+				position: absolute;
+				width: 100%;
+				height: 200px;
+				left: 0;
+				cursor: pointer;
+			}
+			.up {
+				top: 0;
+			}
+			.down {
+				bottom: 0;
+			}
+			#pic {
+				position: absolute;   /*只有定位了的盒子*/
+				top:0;
+				left: 0;
+			}
+		</style>
+        <script>
+        	window.onload = function() {
+        		function $(id) { return document.getElementById(id); }
+        		var picPosition = 0;
+        		var intervalName = null;
+        		$("picUp").onmouseover = function() {
+        			clearInterval(intervalName);
+        			intervalName = setInterval(function() {
+        			   if(picPosition<0){
+        			   	  picPosition += 2;
+        			      $("pic").style.top = picPosition + "px";
+        			      console.log(picPosition);
+        			   }else{
+        			   	   clearInterval(intervalName);
+        			   }
+        			},10);    
+        			
+        		}
+        		
+        		$("picDown").onmouseover = function() {
+        			/*alert(11);*/
+        			clearInterval(intervalName);
+        			intervalName = setInterval(function() {
+        				if(picPosition > -1070){
+        					picPosition --;
+        				    $("pic").style.top = picPosition + "px";
+        				    console.log(picPosition);
+        				}else{
+        					clearInterval(intervalName);
+        				}
+        			},10);
+        		}
+        		
+        		$("pic").parentNode.onmouseout = function() {
+        			clearInterval(intervalName);
+        		}
+        	}
+        </script>
+	</head>
+	<body>
+		<div class="xiaomi">
+			<img src="images/mi.png" alt="" id="pic" />
+			<span class="up" id="picUp"></span>
+			<span class="down" id="picDown"></span>
+		</div>
+	</body>
+</html>
