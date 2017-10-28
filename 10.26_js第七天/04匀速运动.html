@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box {
+				position: absolute;
+				top: 100px;
+				left: 0px;
+				width: 100px;
+				height: 100px;
+				background-color: pink;
+			}
+		</style>
+		<script>
+			window.onload = function() {
+				var btn = document.getElementById("btn");
+				var box = document.getElementsByClassName("box")[0];
+				/*getElementByClassName 返回的是数组，这点要注意*/
+				var timer = null;
+				var boxPisition = 0;
+				btn.onclick = function() {
+					timer = setInterval(function() {
+						boxPisition ++ ;
+						console.log(boxPisition);
+						if(boxPisition <= 500){
+							box.style.left = boxPisition + "px";
+						}
+						else{
+							clearInterval(timer);
+						}
+					},10);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+		<div class="box">
+			
+		</div>
+	</body>
+</html>

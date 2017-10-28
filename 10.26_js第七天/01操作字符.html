@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			window.onload = function() {
+				var div1IH = document.getElementById("div1").innerHTML;
+				var div2IH = document.getElementById("div2").innerHTML;
+				function btnOnclick(id,txt) {
+					document.getElementById(id).onclick = function() {
+						//document.getElementById(id).nextSibling.innerHTML = txt;
+					    //this.nextSibling.innerHTML = txt;
+					    this.nextElementSibling.innerHTML = txt;
+					}
+				}
+				btnOnclick("btn",div1IH.concat(div2IH));
+				btnOnclick("btn2",div1IH.slice(-6));
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div1">what's your name</div>
+		<div id="div2">my name is peter</div>
+		<button id="btn">按钮</button><span></span>
+        <button id="btn2">slice</button><span></span>
+	</body>
+</html>

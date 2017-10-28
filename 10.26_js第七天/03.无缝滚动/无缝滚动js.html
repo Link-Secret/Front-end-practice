@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0; padding: 0;}
+			ul {list-style: none;}
+			img {vertical-align: top;}  /*取消图片上边的三像素空白*/
+			.box {
+				width: 600px;
+				height: 200px;
+				border: 1px solid #B1191A;
+				margin: 100px auto;
+				position: relative;
+				overflow: hidden;     
+			}
+			ul {
+				width: 400%;          /*六张图片需要3倍或以上的父亲盒子宽度*/
+				position: absolute;  /*要移动就要定位，子绝父相*/
+				top: 0;
+				left: 0;
+			}
+			ul li { 
+				float: left;         /*图片并排*/
+			}
+		</style>
+		<script>
+			window.onload = function() {
+				var scroll = document.getElementById("scroll");
+			    var ul = scroll.children[0];  
+			    var picPosition = 0;   /*图片位置*/
+			    var timer = null;    /*给定时器名字*/
+			    timer = setInterval(autoPlay,10);
+			   function autoPlay() {
+				picPosition -- ;
+				picPosition <= -1200 ? picPosition=0 : picPosition;
+				ul.style.left = picPosition + "px";
+			   }
+			    /*scroll.omouseover = function() {
+			    	alert(11);
+			    	clearInterval(timer);
+			    }*/
+			    /*scroll.onmouseover = function() {
+			    	clearInterval(timer);
+			    }*/
+			    scroll.onmouseover = function() {  // 鼠标经过大盒子  停止定时器
+                   clearInterval(timer);
+                }
+			    scroll.onmouseout = function() {    /*鼠标移出则继续定时器*/
+			    	timer = setInterval(autoPlay,10);
+			    }
+			}
+		</script>
+	</head>
+	<body>
+		<div class="box" id="scroll">
+			<ul>
+				<li><img src="images/01.jpg" alt="" /></li>
+				<li><img src="images/02.jpg" alt="" /></li>
+				<li><img src="images/03.jpg" alt="" /></li>
+				<li><img src="images/04.jpg" alt="" /></li>
+				<li><img src="images/01.jpg" alt="" /></li>
+				<li><img src="images/02.jpg" alt="" /></li>
+			</ul>
+		</div>
+	</body>
+</html>

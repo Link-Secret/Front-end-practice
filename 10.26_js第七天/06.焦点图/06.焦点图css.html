@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			ul,ol {list-style: none;}  /*清除ul,ol的样式*/
+			img {display: block;}   /*取消图片的距离*/
+			* {padding: 0; margin: 0;} /*取消浏览器默认样式*/
+		
+			.slider {
+				width: 490px;
+				height: 170px;
+				border: 1px solid #333333;
+				margin: 100px auto;    /*居中*/
+                padding: 5px;   /*里面放个子盒子，子盒子和父盒子就靠这padding来显示边框*/
+			    position: relative;
+			}
+			.slider .inner {
+				width: 100%;
+				height: 100%;
+				position: relative; /*ul定位在inner中，要相对定位*/
+				/*overflow: hidden;*/ /*在二级盒子inner中切割，为了保留边距*/
+			}
+			.inner ul {
+				width: 1000%;  /*图片的亲生父亲，要容纳图片*/
+				position: absolute;  /*要移动就要定位*/
+				top: 0;
+				left: 0;
+			}
+			.inner ul li {
+				float: left;  /*图片浮动，脱离标准流，在标准流中图片为块级元素，占一行*/
+			}
+			.slider ol {
+				position: absolute; /*定位在父亲slider中*/
+				left: 50%;     /*离左边半个父亲的宽度*/
+				margin-left: -80px;  /*外边距再向左移动80px*/
+				bottom: 10px;   /*离下边10px*/	
+			}
+			.slider ol li {
+				float: left; /*li并排*/
+				width: 18px;    /*将li的数字改成一个块样式*/
+				height: 18px;
+				background-color: #FFFFFF;
+				margin-right: 10px;     /*li外边距*/
+				text-align: center;   /*左右居中*/
+				line-height: 18px;   /*上下居中*/
+				cursor: pointer;  /*鼠标变小手*/
+			}
+			.slider ol li.current {
+				background-color: orange;
+			}
+			
+		</style>
+	</head>
+	<body>
+
+		<div class="slider">
+			<div class="inner">
+				<ul>
+					<li><img src="images/01.jpg" alt="" /></li>
+					<li><img src="images/02.jpg" alt="" /></li>
+					<li><img src="images/03.jpg" alt="" /></li>
+					<li><img src="images/04.jpg" alt="" /></li>
+					<li><img src="images/05.jpg" alt="" /></li>
+				</ul>
+			</div>
+			<ol>
+				<li class="current">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+			</ol>
+		</div>
+
+	</body>
+</html>
