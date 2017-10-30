@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {padding: 0; margin: 0;}  
+			ul {list-style: none;}    /*清除浏览器默认样式*/
+			body {
+				background-color: #000000;
+			}
+			.nav {
+				width: 800px;
+				height: 42px;
+				margin: 100px auto;       /*居中*/
+				border-radius: 5px;       /*圆弧角度*/
+				background: url(images/rss.png) no-repeat right center #FFFFFF; /*背景设置*/
+			    position: relative;   /*为了云彩的显现*/
+			}
+			.cloud {
+				width:83px;
+				height: 42px;  /*云彩要有显现的盒子装*/
+				background: url(images/cloud.gif) no-repeat;
+				position: absolute;   /*定位的盒子*/
+				left: 0;
+				top: 0;
+			}
+			.nav ul {
+				position: absolute;  
+				/*和cloud同样定位，因为在body里面ul在后面，所以可以压住cloud*/
+			    top: 0;
+			    left: 0;  /*绝对定位就要有left 和 top值*/
+			}
+			.nav ul li {
+				float: left;          /*浮动，就可以并排*/
+				width: 83px;     
+				height: 42px;       /*设置宽高*/
+				text-align: center;   /*水平居中*/
+				line-height: 42px;   /*垂直居中*/
+				color: #000000;    /*li颜色*/
+				cursor: pointer;   /*小手*/
+			}
+		</style>
+	</head>
+	<body>
+		<div class="nav">
+			<span class="cloud"></span>
+			<ul>
+                <li>首页新闻</li>
+                <li>师资力量</li>
+                <li>活动策划</li>
+                <li>企业文化</li>
+                <li>招聘信息</li>
+                <li>公司简介</li>
+                <li>上海校区</li>
+                <li>广州校区</li>
+			</ul>
+		</div>
+	</body>
+</html>

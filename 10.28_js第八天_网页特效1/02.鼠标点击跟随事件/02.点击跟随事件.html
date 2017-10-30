@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#image {
+				width: 99px;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+		</style>
+		<script>
+			window.onload = function() {
+				var move = document.getElementById("image");
+				document.onmousemove = function(event) {
+					var event = event || window.event;
+					targetx = event.clientX - move.offsetWidth/2;     
+					/*坐标是以左上角为准的，所以向上向左移动半个自身*/
+					targety = event.clientY - move.offsetHeight/2;
+				}
+				
+				var leaderx = 0,leadery =0,targetx =0,targety =0;
+				setInterval(function(){
+					leaderx = leaderx + (targetx - leaderx)/10;
+					leadery = leadery + (targety - leadery)/10;
+					move.style.left = leaderx + "px";
+					move.style.top = leadery + "px";
+				},10);
+			}
+		</script>
+	</head>
+	<body>
+		
+			<img src="images/img.jpg" id="image"/>
+		
+	</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {margin: 0; padding: 0;}
+	        .scroll {
+            width: 400px;
+            height: 8px;
+            background-color: #ccc;
+            margin: 100px;
+            position: relative;
+
+            }
+          .bar {
+            width: 10px;
+            height: 22px;
+            background-color: #369;
+            position: absolute;
+            top: -7px;
+            left: 0;
+            cursor: pointer;
+        }
+		</style>
+		<script>
+			window.onload = function() {
+				var scrollBar = document.getElementById("scrollBar");
+				var bar = scrollBar.children[0];
+				bar.onmousedown = function(event) {
+					var event = event || window.event ;  /*兼容考虑*/
+					var leftVal = event.clientX - this.offsetLeft;
+					var that = this;
+					document.onmousemove = function(event) {
+						var event = event || window.event ;  /*兼容考虑*/
+						that.style.left = event.clientX -leftVal +"px";
+					    
+					    
+					    var val = parseInt(that.style.left);
+					    if(val < 0){
+					    	that.style.left = "0px";
+					    }else if(val >390){
+					    	that.style.left = "390px";
+					    }
+					    
+					    console.log(bar.style.left);
+					}
+					document.onmouseup = function() {
+					   document.onmousemove = null;
+					   /*这里是document,因为拖动过程中，不是只能在bar上面
+					    第二就是，document.onmouseover，当弹起来的时候，不再有
+					    移动操作*/
+				   }
+				}	
+			}
+		</script>
+	</head>
+	<body>
+		<div class="scroll" id="scrollBar">
+			<div class="bar"></div>
+		</div>
+	</body>
+</html>

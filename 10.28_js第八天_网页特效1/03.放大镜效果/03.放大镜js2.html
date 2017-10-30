@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			.box {
+				width: 350px;
+				height: 350px;
+				margin: 100px;
+				border: 1px solid #B1191A;
+				position: relative;   /*是盒子.big的父亲*/
+			}
+			.small {
+				position: relative;  /*是盒子.mask的父亲*/
+			}
+			.mask {
+				width: 100px;
+				height: 100px;
+				position: absolute;  /*要绝对定位*/
+				top: 0;
+				left: 0;
+				background-color: rgba(255,255,0,0.4);   /*背景色为黄色半透明*/
+				cursor: move;  /*鼠标经过特效*/
+				display: none;
+			}
+			.big {
+				width: 450px;
+				height: 450px;   /*设置宽高*/
+				position: absolute;
+				left: 360px;
+				top: 0px;   /*相对于.box的绝对定位*/
+				border: 1px solid #800080;
+				overflow: hidden;  /*裁剪多余的*/
+				display: none;
+			}
+		</style>
+		<script>
+			window.onload = function() {
+				var magnifiler = document.getElementById("magnifier");
+				var small = magnifiler.children[0];
+				var mask = small.children[1];
+				/*mask为small的第二个孩子，第一个为图片*/
+				var big = magnifiler.children[1];
+				
+				
+				small.onmouseover = function() {
+					mask.style.display = "block";
+					big.style.display = "block";
+				}
+				small.onmouseout = function() {
+					mask.style.display = "none";
+					big.style.display = "none";
+				}
+				
+				/**
+				 *  small和 big 同在box的下一层，这样就可以防止
+				 * 
+				 * */
+				var MaskX = 0,MaskY = 0;
+				small.onmousemove = function(event) {
+					var event = event || window.event;  /*兼容考虑*/
+					MaskX = event.clientX - this.offsetParent.offsetLeft -mask.offsetWidth/2;
+					MaskY = event.clientY - magnifiler.offsetTop - mask.offsetHeight/2;
+					/*两种方法都可以，不能使用this.offsetLeft是因为，父亲定位了*/
+					mask.style.left = MaskX + "px";
+					mask.style.top = MaskY + "px";
+					
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div class="box" id="magnifier">
+			<div class="small">
+				<img src="images/001.jpg"/>
+				<div class="mask"></div>
+			</div>
+			<div class="big">
+				<img src="images/0001.jpg"/>
+			</div>
+		</div>
+	</body>
+</html>
