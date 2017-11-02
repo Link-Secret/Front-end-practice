@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin:0;padding:0;}
+        .nav{
+            height:30px;
+            background: #036663;
+            border-bottom:1px solid #369;
+            line-height: 30px;
+            padding-left:30px;
+        }
+        .nav a {
+            color:#fff;
+            text-align: center;
+            font-size:14px;
+            text-decoration: none;
+
+        }
+        .d-box{
+            width:400px;
+            height:300px;
+            border:5px solid #eee;
+            box-shadow:2px 2px 2px 2px #666;
+            position: absolute;
+            top:50%;
+            left:50%;
+            margin-top: -155px;
+            margin-left:-205px;
+
+        }
+        .hd{
+            width:100%;
+            height:25px;
+            background-color: #7c9299;
+            border-bottom:1px solid #369;
+            line-height: 25px;
+            color:white;
+            cursor: move;
+        }
+        #box_close{
+            float: right;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+    	window.onload = function() {
+    		var box = document.getElementById("d_box");
+            var drop = document.getElementById("drop");
+            startDrop(drop,box);  // 鼠标放到  drop    但是移动 是 box
+            function startDrop(current,move) {
+            	current.onmousedown = function(event) {
+            		var event = event || window.event;
+            		var currentToMoveX = event.clientX - move.offsetLeft;
+            		var currentToMoveY = event.clientY - move.offsetTop;
+            		/*event鼠标到窗口边界的x,y值*/
+            		document.onmousemove = function(event2) {
+            			/*注意这里是document，因为在整个文档中都可以拖动*/
+            			var event2 = event2 || window.event;
+            			move.style.left = event2.clientX - currentToMoveX + 205 + "px";
+            			move.style.top = event2.clientY - currentToMoveY + 155 + "px";
+            			/*因为窗口在中间弹出，设置了margin值，而offsetleft是不计算margin值的
+            			 因为margin值为负值，所以窗口相对于event鼠标向上向左偏移，所以要加*/
+            		    
+            		     window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
+            		}
+            	}
+            	document.onmouseup = function() {
+            		/*注意这里是document，因为在整个文档中都可以弹起*/
+            		document.onmousemove = null;
+            	}
+            }
+    	  }
+    </script>
+</head>
+<body>
+<div class="nav">
+    <a href="javascript:;" id="register">注册信息</a>
+</div>
+<div class="d-box" id="d_box">
+    <div class="hd" id="drop">注册信息   (可以拖拽)
+            <span id="box_close">【关闭】</span>
+    </div>
+    <div class="bd"></div>
+</div>
+</body>
+</html>

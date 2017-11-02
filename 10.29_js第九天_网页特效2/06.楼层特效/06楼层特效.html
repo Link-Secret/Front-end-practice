@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			ul,li {list-style: none;}
+			* {margin: 0; padding: 0;}
+			html,body {
+				width: 100%;
+				height: 100%;
+			}
+			ul {
+				width: 100%;
+				height: 100%;
+			}
+			ul li {
+				width: 100%;
+				height: 100%;
+			}
+			ol {
+				position: fixed;
+				left: 50px;
+				top: 0;
+			}
+			ol li {
+				width: 50px;
+				height: 50px;
+				border: 1px solid #036663;
+				cursor: pointer;
+			}
+		</style>
+		<script type="text/javascript" src="my.js" ></script>
+		<script>
+			window.onload = function() {
+				var ulbox = $("ul");
+				var ulboxLis = ulbox.children;
+				var olbox = $("ol");
+				var olboxLis = olbox.children;
+				var bgColor = ["pink","skyblue","#333333","green","yellow"];
+				
+				for(var i=0;i<ulboxLis.length;i++){
+					olboxLis[i].index = i;   /*设置ol的每个li的索引值*/
+					ulboxLis[i].style.backgroundColor = bgColor[i];
+					olboxLis[i].style.backgroundColor = bgColor[i];
+					
+					var leader =0,target=0,timer=null;
+					
+					olboxLis[i].onclick = function() {
+						clearInterval(timer);   /*清除定时器*/
+						target = ulboxLis[this.index].offsetTop;  /*这里this.index是ol的索引值*/
+						timer = setInterval(function(){
+							leader = leader + (target - leader)/10;
+							window.scrollTo(0,leader);
+						},20);
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+<ul id="ul">
+    <li>首页</li>
+    <li>关注</li>
+    <li>动态</li>
+    <li>风格</li>
+    <li>作品</li>
+</ul>
+<ol id="ol">
+    <li>首页</li>
+    <li>关注</li>
+    <li>动态</li>
+    <li>风格</li>
+    <li>作品</li>
+</ol>
+	</body>
+</html>
