@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			
+		</style>
+		<script type="text/javascript" src="my.js" ></script>
+		<script>
+			window.onload = function() {
+				reSize();         
+				/*页面一加载就执行函数检测窗口尺寸，来改变颜色，只执行一次*/
+				 window.onresize = reSize; 
+				 /*当窗口尺寸改变时候都会执行函数，每次改变都会执行，检测尺寸*/
+				 function  reSize() {    /*函数*/
+				 	var screenSize = client().width;
+				 	if(screenSize>1000){
+				 		document.body.style.backgroundColor = "blue";
+				 	}else if(screenSize>700){
+				 		document.body.style.backgroundColor = "red";
+				 	} else {
+				 		document.body.style.backgroundColor = "pink";
+				 	}
+				 }
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
