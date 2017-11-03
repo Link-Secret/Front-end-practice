@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div {
+				width: 200px;
+				margin: 100px ;
+			}
+			span {
+				position: absolute;
+				top: 0;
+				left: 0;
+				background-color: #DB7093;
+				width: 100px;
+				height: 100px;
+				display: none;
+			}
+		</style>
+		<script>
+			window.onload = function() {
+				function $(id) {return document.getElementById(id); }
+				
+				$("test").onmouseup = function(event) {
+					var event = event || window.event;
+					var x = event.clientX;
+					var y = event.clientY;
+					showBox(x,y);
+				}
+				function showBox(mouseX,mouseY) {
+					$("demo").style.display = "block";
+					$("demo").style.left = mouseX + "px";
+					$("demo").style.top = mouseY + "px";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<span id="demo"></span>
+		<div id="test">要弹出文字弹出层要弹出文字弹出层要弹出文字弹出层要弹出文字弹出层
+		要弹出文字弹出层要弹出文字弹出层要弹出文字弹出层要弹出文字弹出层要弹出文字弹出层
+		要弹出文字弹出层要弹出文字弹出层要弹出文字弹出层要弹出文字弹出层</div>
+		<div id="compare">不要弹出文字弹出层不要弹出文字弹出层不要弹出文字弹出层不
+			要弹出文字弹出层不要弹出文字弹出层不要弹出文字弹出层不要弹出文字弹出层
+		不要弹出文字弹出层不要弹出文字弹出层不要弹出文字弹出层</div>
+	</body>
+</html>

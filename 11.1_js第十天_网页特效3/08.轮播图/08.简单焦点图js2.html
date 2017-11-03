@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+*{ padding:0; margin:0; list-style:none; border:0;}
+.all{
+  width:500px;
+  height:200px;
+  padding:7px;
+  border:1px solid #ccc;
+  margin:100px auto;
+  position:relative;
+}
+.screen{
+	width:500px;
+	height:200px;
+	 overflow:hidden; 
+	position:relative;
+}
+
+.screen li{ width:500px; height:200px; overflow:hidden; float:left;}
+.screen ul{ position:absolute; left:0; top:0px; width:3000px;}
+.all ol{ position:absolute; right:10px; bottom:10px; line-height:20px; text-align:center;}
+.all ol li{ float:left; width:20px; height:20px; background:#fff; border:1px solid #ccc; margin-left:10px; cursor:pointer;}
+.all ol li.current{ background:yellow;}
+
+</style>
+<script type="text/javascript">
+    window.onload = function() {
+    	var ul = document.getElementById("ul");
+    	ul.appendChild(ul.children[0].cloneNode(true));  
+    	/*在最后添加一个孩子，孩子是ul的第一个孩子的完全克隆*/
+    	var box = document.getElementById("all");  
+    	/*向大盒子添加ol,screen是包裹图片的中层盒子的，ol应该和screen一层*/
+    	var ol = document.createElement("ol");   /*在文档中创建一个漂浮的节点*/
+    	var ulList = ul.children;  /*根据图片来确定ol里面的li*/
+    	box.appendChild(ol);
+    	for(var i =0;i<ulList.length-1;i++){
+    		 var li = document.createElement("li");  /*创建li节点*/
+    		 li.innerHTML = i+1;    /*添加内容*/
+    		 ol.appendChild(li);    
+    	}
+    	ol.children[0].className = "current";
+    	
+    	/*2轮播动画*/
+    	var olLis = ol.children;
+    	/*鼠标经过变色*/
+    	for(var i=0;i<olLis.length;i++){
+    		olLis[i].index = i;
+    		olLis[i].onmouseover = function() {
+    			for(var j =0;j<olLis.length;j++){
+    				olLis[j].className = "";
+    			}
+    			this.className = "current";
+    			animate(ul,-this.index*500);
+    		}
+    	}
+    	 /*3匀速动画*/
+    	function animate(obj,target){	
+    		          /*先清除定时器*/
+    		         clearInterval(obj.timer);
+                 var speed = obj.offsetLeft<target ? 10 : -10; /*决定步长*/
+                 obj.timer = setInterval(function(){
+                 	  var result = target - obj.offsetLeft;
+                 	  obj.style.left = obj.offsetLeft + speed + "px";
+                 	  if(Math.abs(result)<=10){  /*如果距离小于一个步长，则清除定时器*/
+                 	 	  obj.style.left = target + "px";   /*且让图片到达目标位置*/
+                 	  	clearInterval(obj.timer);
+                 	  }
+                 },10);
+		        }
+    	
+    }
+</script>
+
+</head>
+
+<body>
+<div class="all" id='all'>
+	<div class="screen">
+        <ul id="ul">
+            <li><img src="images/taobao/1.jpg" width="500" height="200" /></li>
+            <li><img src="images/taobao/2.jpg" width="500" height="200" /></li>
+            <li><img src="images/taobao/3.jpg" width="500" height="200" /></li>
+            <li><img src="images/taobao/4.jpg" width="500" height="200" /></li>
+            <li><img src="images/taobao/5.jpg" width="500" height="200" /></li>
+        </ul>
+
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div {
+				width: 100px;
+				height: 100px;
+				position: absolute;
+				background-color: pink;
+			}
+		</style>
+		<script>
+			window.onload = function() {
+		        function $(id) { return document.getElementById(id); }
+		        
+		        $("btn200").onclick = function() {
+		        	animate($("box"),200);  /*盒子移动*/
+		        }
+		        $("btn400").onclick = function() {
+		        	animate($("box"),400); 
+		        }
+		        
+		        function animate(obj,target){	
+		        	obj.timer = setInterval(function(){
+		        		if(obj.offsetLeft > target) {  /*判断一定要在里面*/
+		        		  clearInterval(obj.timer);
+		        	   }
+		        		obj.style.left = obj.offsetLeft + 10 + "px";
+		        	},20);
+		        }
+			}
+		</script>
+	</head>
+	<body>
+		<button id="btn200">200</button>
+		<button id="btn400">400</button>
+		<div id="box"></div>
+	</body>
+</html>
