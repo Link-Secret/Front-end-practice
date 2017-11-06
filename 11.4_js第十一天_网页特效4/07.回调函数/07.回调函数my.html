@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box{
+            width: 322px;
+            position: fixed;
+            bottom:0;
+            right:0;
+        }
+        span{
+            position: absolute;
+            top:0;
+            right:0;
+            width:30px;
+            height: 20px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+    	window.onload = function() {
+    		
+    		/*移动规则*/
+				function animate(obj,json,fn) {
+					clearInterval(obj.timer);
+					var current = null;
+					var target = 0;
+					var speed = 0;
+					var flag = true;
+					obj.timer = setInterval(function() {
+						for( var attr in json){
+							 current = parseInt(getStyle(obj,attr)); 
+							 /*得到当前json的属性的当前值*/
+							 target = json[attr];  /*得到当前json的目标值*/
+							 speed = (target - current)/10;  
+							 speed = speed>0 ? Math.ceil(speed) : Math.floor(speed);
+							 obj.style[attr] = current + speed + "px";
+							 
+							 if(obj.style[attr] != target){
+							 	flag = false;
+							 }
+							 
+							 if(obj.style[attr] == target) {
+							 	clearInterval(obj.timer);
+							 	
+							 }
+							 
+							 /*这里应该涉及到深层原因，导致，有可能是单线程的原因*/
+						}
+						if(flag){
+							 if(fn){
+					             fn();
+					          }
+						}
+						
+					},30);
+					
+					  
+				}
+    		
+    		
+    		var top = document.getElementById("t");
+    		var bottom = document.getElementById("b");
+    		var sp = document.getElementsByTagName("span")[0];
+    		sp.onclick =function() {
+    			animate(bottom,{height:0},function() {
+    				animate(bottom.parentNode,{width:0});
+    				//alert(11);
+    			});
+    		}
+    		
+        /*得到目标的属性的值*/
+				function getStyle(obj,attr) {
+					if(obj.currentStyle){
+						return obj.currentStyle[attr];
+					}
+					else {
+						return window.getComputedStyle(obj,null)[attr];
+					}
+				}
+				
+				
+				
+	
+       }
+    </script>
+</head>
+<body>
+<div class="box">
+    <span></span>
+    <div class="hd" id="t">
+        <img src="images/t.jpg" alt=""/>
+    </div>
+    <div class="bd" id="b">
+        <img src="images/b.jpg" alt=""/>
+    </div>
+</div>
+</body>
+</html>

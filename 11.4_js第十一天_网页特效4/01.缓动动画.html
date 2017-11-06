@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div {
+				width: 100px;
+				height: 100px;
+				background-color: pink;
+				position: absolute;
+				left: 400px;
+			}
+		</style>
+		<script>
+			window.onload = function() {
+				var btn = document.getElementById("btn");
+				var box = document.getElementById("box");
+				var timer = null;
+			    var target = 0;
+				btn.onclick = function() {
+					
+					timer = setInterval(function(){
+						var step = (target - box.offsetLeft)/10
+						step = step>0 ? Math.ceil(step) : Math.floor(step);
+/*大于小于只是决定方向，绝对值要保证比取整前大。如果大于0，需要向上取整，如果小于0，则运动的需要向下取整*/
+						box.style.left = box.offsetLeft + step + "px";
+						console.log(box.offsetLeft);
+						if(box.offsetLeft == target){
+							clearInterval(timer);
+						}
+					},100);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+		<div id="box"></div>
+	</body>
+</html>

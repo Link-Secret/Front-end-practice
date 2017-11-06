@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div {
+				width: 100px;
+				height: 100px;
+				background-color: pink;
+				position: absolute;
+			}
+		</style>
+		<script>
+			window.onload = function() {
+				var btn200 = document.getElementById("btn200");
+				var btn400 = document.getElementById("btn400");
+				btn200.onclick =function() {
+					animate(box,200);
+				}
+				btn400.onclick =function() {
+					animate(box,400);
+				}
+				
+				
+				
+				var timer = null;   
+				/*timer的声明要在外面，这样才能在每次点击的时候清除上次的定时器*/
+				/*一个时间里只有一个定时器，不然就会混乱*/
+				
+				
+				function animate(obj,target) {
+					var step = 0;
+					clearInterval(timer);
+					timer = setInterval(function(){  /*开启定时器*/
+						 step = (target - obj.offsetLeft)/10 ;  
+						 /*每执行一次定时器就要重新赋值*/
+						step = step>0 ? Math.ceil(step) : Math.floor(step);
+						/*根据方向来决定取整的函数*/
+						obj.style.left = obj.offsetLeft + step + "px";
+						/*盒子移动*/
+						if(obj.offsetLeft == target) { /*清除定时器*/
+							clearInterval(timer);
+						}
+						console.log(obj.offsetLeft);
+					},10);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<button id="btn200">btn200</button>
+		<button id="btn400">btn400</button>
+		<div id="box">
+			
+		</div>
+	</body>
+</html>

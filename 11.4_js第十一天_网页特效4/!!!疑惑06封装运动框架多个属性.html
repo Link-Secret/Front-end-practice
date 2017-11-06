@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div {
+			 width: 100px;
+			 height: 100px;
+			 background-color: pink;
+			 position: absolute;
+			 top: 50px;
+			 left: 30px;
+			}
+		</style>
+		<script>
+			window.onload = function() {
+				var btn1 = document.getElementById("btn1");
+				var btn2 = document.getElementById("btn2");
+				var box = document.getElementById("box");
+				
+				btn1.onclick = function() {
+					animate(box,{width:100,height:200});
+				}
+				btn2.onclick =function() {
+					animate(box,{width:30,top:700000,left:800});
+				}
+				
+				/*得到目标的属性的值*/
+				function getStyle(obj,attr) {
+					if(obj.currentStyle){
+						return obj.currentStyle[attr];
+					}
+					else {
+						return window.getComputedStyle(obj,null)[attr];
+					}
+				}
+				
+				/*移动规则*/
+				function animate(obj,json) {
+					clearInterval(obj.timer);
+					var current = null;
+					var target = 0;
+					var speed = 0;
+					obj.timer = setInterval(function() {
+						for( var attr in json){
+							 current = parseInt(getStyle(obj,attr)); 
+							 /*得到当前json的属性的当前值*/
+							 target = json[attr];  /*得到当前json的目标值*/
+							 speed = (target - current)/10;  
+							 speed = speed>0 ? Math.ceil(speed) : Math.floor(speed);
+							 obj.style[attr] = current + speed + "px";
+							 
+							 if(obj.style[attr] == target) {
+							 	clearInterval(obj.timer);
+							 }
+							 
+							 /*这里应该涉及到深层原因，导致，有可能是单线程的原因*/
+						}
+					},30);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<button id="btn1">按钮1</button>
+		<button id="btn2">按钮2</button>
+		<div id="box">
+			
+		</div>
+	</body>
+</html>

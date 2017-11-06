@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div {
+				width: 100px;
+				height: 100px;
+				background-color: pink;
+				position: absolute;
+				left: 10px;
+				top: 40px;
+			}
+		</style>
+		<script>
+			window.onload = function() {
+				function getStyle(obj,attr) {
+					if(obj.currentStyle){
+						return obj.currentStyle[attr];
+					}
+					else {
+						return window.getComputedStyle(obj,null)[attr];
+					}
+				}
+				
+				var bt1 = document.getElementById("bt1");
+				var bt2 = document.getElementById("bt2");
+				var box = document.getElementById("box");
+				
+				bt1.onclick =function() {
+					animate(box,"width",90);
+				}
+				bt2.onclick =function() {
+					animate(box,"height",300);
+				}
+				
+				function animate(obj,attr,target){
+					clearInterval(obj.timer);    /*共用方块的定时器*/
+					var speed = 0;   /*先定义，这样不用在定时器中每次都要定义，每次只用赋值*/
+					obj.timer = setInterval(function(){
+						var current = parseInt(getStyle(obj,attr));  
+						/*每次执行定时器都要得到当前的属性值,要去掉px*/
+						speed = (target - current)/10;      
+						/*步长，不一定是移动*/
+						speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+						/*根据正负决定方向，从而使用不同取整方法*/
+						obj.style[attr] = current + speed + "px";
+						if(obj.style[attr] == target){
+							clearInterval(obj.timer);
+							/*清除定时器*/
+						}
+					},20);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<button id="bt1">bt1</button>
+		<button id="bt2">bt2</button>
+		<div id="box"></div>
+	</body>
+</html>
