@@ -1,0 +1,63 @@
+* {margin:0;padding: 0;}
+
+img {vertical-align: top;}  /*图片上边距*/
+
+.w-slider {
+	margin: 100px;
+	width: 310px;
+	height: 265px;
+	position: relative;
+}
+
+.slider-main {
+	width: 620px;
+	height: 220px;
+	background-color: pink;
+}
+
+.slider-main-img {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+/*导航条*/
+.slider-ctrl {
+	text-align: center;  /*居中*/
+}
+/*小方块*/
+.slider-ctrl-con {
+	width: 24px;
+	height: 20px;
+	display: inline-block;
+	background: url(../images/icon.png) no-repeat -24px -780px;
+	cursor: pointer;
+	margin: 0 5px;
+	
+	/*隐藏数字*/
+	text-indent: -20em;
+	overflow: hidden;
+}
+
+.slider-ctrl-prev,
+.slider-ctrl-next {
+	width: 29px;
+	height: 34px;
+	position: absolute;
+	top: 50%;
+	margin-top: -40px;
+	background: url(../images/icon.png) no-repeat 6px 0;
+	opacity: 0.6;
+	cursor: pointer;
+}
+
+.slider-ctrl .slider-ctrl-prev {
+	left: 0;
+}
+.slider-ctrl .slider-ctrl-next {
+	right: 0;
+	background-position: -6px -45px;
+}
+.current {
+	background-position: -24px -762px;
+}

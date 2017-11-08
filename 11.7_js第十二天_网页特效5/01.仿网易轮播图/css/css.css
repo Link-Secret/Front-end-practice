@@ -1,0 +1,78 @@
+* { margin: 0; padding: 0;}
+img { vertical-align: top;}
+.w-slider {
+	width: 310px;
+	height: 265px;
+	margin: 100px;
+	position: relative;
+}
+
+/*上部分盒子*/
+.slider {           
+	width:310px;     
+	height: 220px;
+}
+
+/*上部分盒子里面的放图片的第二层盒子，要是图片的两倍宽*/
+.slider-main {
+	width: 620px;
+	height: 220px;
+	background-color: pink;
+}
+
+.slider-main-img {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+/*导航条*/
+.slider-ctrl {
+	text-align: center;  /*孩子在父亲中居中*/
+}
+
+/*导航条--孩子*/
+.slider-ctrl-con {
+	width: 24px;
+	height: 20px;
+	display: inline-block; 
+	/*行内元素是没有大小的，所以不会显示---要么脱离标准流，要么转换成行内块级元素*/
+
+	background: url(../images/icon.png) no-repeat -24px -782px;
+	/*精灵图*/
+	margin: 0 5px;
+	cursor: pointer;
+	
+	/*隐藏添加的数字*/
+	text-indent: -20em;
+	overflow: hidden;
+}
+
+/*选中的样式*/
+.current {
+	background-position: -24px -762px;
+}
+
+.slider-ctrl-prev,
+.slider-ctrl-next {
+	width: 29px;
+	height: 34px;
+	position: absolute;  /*绝对定位到上面盒子去*/
+	top: 50%;
+	margin-top: -40px;    /*向上移动一点*/
+	background: url(../images/icon.png) no-repeat 6px 0;
+	cursor: pointer;
+	opacity: 0.8;  /*透明*/
+}
+
+/*加权重,虽然在后面会层叠掉*/
+.slider-ctrl .slider-ctrl-prev {
+	left: 0;
+	
+}
+
+/*加权重*/
+.slider-ctrl .slider-ctrl-next {
+	right: 0;
+	background-position: -6px -45px;
+}
