@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			window.onload = function() {
+				var demo = document.getElementById("box");
+				var num = 0;
+				window.onresize = throttle(function() {
+					/*闭包：由于使用了闭包，如果没使用，则只执行一次，因为加了括号*/
+					demo.innerHTML = window.innerWidth || document.documentElement.clientWidth;
+					num++;
+				},300);
+				/*只要改变屏幕宽度拖动时候停止时间不超过delay就不会改变数字*/
+				function throttle(fn,delay) {   /*闭包，节流*/
+					var timer = null;
+					return function() {
+						clearInterval(timer);
+						timer = setTimeout(fn,delay);
+					}
+				}
+				
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+</html>

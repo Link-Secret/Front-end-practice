@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			window.onload = function() {
+				function fnOut() {
+					var num =0
+					return function() {
+						alert(++num);
+					}
+				}
+				var demo = fnOut();
+				demo();
+				demo();
+				var demo2 = fnOut();
+				demo2();
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

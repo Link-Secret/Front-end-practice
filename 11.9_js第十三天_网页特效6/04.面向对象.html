@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	function Person(name,age) {
+		var obj = {};
+		obj.name = name;
+		obj.age = age;
+		obj.getName = function() {
+			console.log("我的名字是"+name);
+		}
+		obj.getAge = function() {
+			console.log("我的年龄是"+age);
+		}
+		return obj;   /*返回对象*/
+	}
+	
+	var xiaoming  = Person("xiaoming",12);
+	console.log(xiaoming.name);
+	console.log(xiaoming.age);
+	xiaoming.getName();
+	xiaoming.getAge();
+	
+	function Person2(name,age) {
+		
+		this.name = name;
+		this.age = age;
+		this.getName = function() {
+			console.log("我的名字是"+name);
+		}
+		this.getAge = function() {
+			console.log("我的年龄是"+age);
+		}
+	}
+	
+	var xiaoming  = Person("xiaoming2",12);
+	console.log(xiaoming.name);
+	console.log(xiaoming.age);
+	xiaoming.getName();
+	xiaoming.getAge();
+	
+	
+	var arr = [];
+	arr.run()
+</script>
